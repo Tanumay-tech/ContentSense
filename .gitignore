@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+backend/contentsense.db
+backend/storage/
+backend/tests/.test.db
+
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/next-env.d.ts
+frontend/tsconfig.tsbuildinfo
+*.log
+
+# Env / OS
+.env
+.env.local
+.DS_Store

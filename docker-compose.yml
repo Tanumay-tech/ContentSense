@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: contentsense-backend
+    ports:
+      - "8000:8000"
+    environment:
+      CORS_ORIGINS: http://localhost:3000,http://127.0.0.1:3000
+      AUTO_LOAD_DEMO: "true"
+      # DATABASE_URL: postgresql+psycopg://user:pass@db:5432/contentsense   # PostgreSQL-ready
+    volumes:
+      - contentsense-data:/app/storage
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8000
+    container_name: contentsense-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  contentsense-data:

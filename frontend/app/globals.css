@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   ContentSense theme tokens. Change these to re-theme the whole UI.
+   One primary accent (blue); status colours are reserved for
+   good / warning / negative meaning and always ship with icon + label.
+   ------------------------------------------------------------------ */
+:root {
+  color-scheme: light;
+  --page: #f6f7f5;
+  --surface: #ffffff;
+  --subtle: #f3f3f0;
+  --border: #e4e3dd;
+  --ink: #16181d;
+  --ink-2: #52514e;
+  --ink-3: #7c7a74;
+  --primary: #2a78d6;
+  --primary-soft: #eaf2fc;
+  --primary-ink: #1c5cab;
+  --good: #0ca30c;
+  --good-soft: #e8f6e8;
+  --good-ink: #006300;
+  --warn: #fab219;
+  --warn-soft: #fff5de;
+  --warn-ink: #8a5a00;
+  --bad: #d03b3b;
+  --bad-soft: #fcebeb;
+  --bad-ink: #a42a2a;
+  --grid: #e8e7e1;
+  --axis: #c3c2b7;
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html, body { background: var(--page); color: var(--ink); }
+body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* recharts chrome: hairline, recessive */
+.recharts-cartesian-grid line { stroke: var(--grid); }
+.recharts-text { fill: var(--ink-3); font-size: 11px; }
+.recharts-cartesian-axis-line, .recharts-cartesian-axis-tick-line { stroke: var(--axis); }
+.recharts-tooltip-cursor { fill: rgba(22, 24, 29, 0.04); }
+
+/* thin scrollbars for tables */
+.scroll-thin::-webkit-scrollbar { height: 8px; width: 8px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: #d6d5cf; border-radius: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
